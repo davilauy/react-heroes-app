@@ -53,6 +53,7 @@ describe("Pruebas en <HeroScreen />", () => {
 
     wrapper.find("button").prop("onClick")();
     expect(historyMock.push).toHaveBeenCalledWith("/");
+    expect(historyMock.goBack).not.toHaveBeenCalled();
   });
 
   test("Debe de llamar a la funcion goBack ", () => {
@@ -67,5 +68,19 @@ describe("Pruebas en <HeroScreen />", () => {
 
     wrapper.find("button").prop("onClick")();
     expect(historyMock.goBack).toHaveBeenCalled();
+    expect(historyMock.push).toHaveBeenCalledTimes(0);
+  });
+
+  test("Debe de llamar al componente Redirect si el hero no existe ", () => {
+    const wrapper = mount(
+      <MemoryRouter initialEntries={["/hero/null"]}>
+        <Route
+          path="/hero/:heroeId"
+          component={() => <HeroScreen history={historyMock} />}
+        />
+      </MemoryRouter>
+    );
+
+    expect(wrapper.text()).toBe("");
   });
 });

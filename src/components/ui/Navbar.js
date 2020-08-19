@@ -24,29 +24,14 @@ export const Navbar = () => {
 
       <div className="navbar-collapse">
         <div className="navbar-nav">
-          <NavLink
-            activeClassName="active"
-            className="nav-item nav-link"
-            exact
-            to="/marvel"
-          >
+          <NavLink className="nav-item nav-link" exact to="/marvel">
             Marvel
           </NavLink>
 
-          <NavLink
-            activeClassName="active"
-            className="nav-item nav-link"
-            exact
-            to="/dc"
-          >
+          <NavLink className="nav-item nav-link" exact to="/dc">
             DC
           </NavLink>
-          <NavLink
-            activeClassName="active"
-            className="nav-item nav-link"
-            exact
-            to="/search"
-          >
+          <NavLink className="nav-item nav-link" exact to="/search">
             Search
           </NavLink>
         </div>
@@ -55,11 +40,7 @@ export const Navbar = () => {
       <div className="navbar-collapse collapse w-100 order-3 dual-collapse2">
         <ul className="navbar-nav ml-auto">
           <span className="nav-item nav-link text-info">{name}</span>
-          <button
-            activeClassName="active"
-            className="nav-item nav-link btn"
-            onClick={handleLogout}
-          >
+          <button className="nav-item nav-link btn" onClick={handleLogout}>
             Logout
           </button>
         </ul>
